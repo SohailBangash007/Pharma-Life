@@ -1,0 +1,21 @@
+import { ArrowRight, Clock3, Mail, MessageCircle, PackageCheck } from "lucide-react";
+
+export function ContactPage({ showNotice }) {
+  return <section className="mx-auto grid max-w-[1360px] gap-12 px-5 py-12 sm:px-8 md:grid-cols-[.8fr_1.2fr] md:py-16 lg:px-12">
+    <div><p className="mb-4 text-[10px] font-bold tracking-[.17em] text-[#b39456]">WE’RE HERE FOR YOU</p><h1 className="font-display text-5xl font-semibold tracking-[-2.5px] sm:text-6xl">Let’s talk.<br /><span className="text-[#b39456]">We’re listening.</span></h1><p className="mt-5 max-w-sm text-sm leading-7 text-[#a6a79d]">Questions about an order, a product, or just need a little help? Our friendly care team would love to hear from you.</p>
+      <div className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-1">
+        <div className="contact-info-card flex items-start gap-3 rounded-2xl border p-4"><span className="contact-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"><Clock3 size={18} /></span><div><p className="text-sm font-bold">Care team hours</p><p className="mt-1 text-xs text-[#9b9d92]">Monday – Friday, 9am – 5pm</p><p className="mt-1 text-[10px] text-[#ad925c]">We usually reply within one business day.</p></div></div>
+        <div className="contact-info-card flex items-start gap-3 rounded-2xl border p-4"><span className="contact-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"><Mail size={18} /></span><div><p className="text-sm font-bold">Email our team</p><a href="mailto:hello@medican.example" className="mt-1 block text-xs text-[#b39456]">hello@medican.example</a><p className="mt-1 text-[10px] text-[#9b9d92]">For product and general enquiries.</p></div></div>
+        <div className="contact-info-card flex items-start gap-3 rounded-2xl border p-4 sm:col-span-2 md:col-span-1"><span className="contact-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"><PackageCheck size={18} /></span><div><p className="text-sm font-bold">Order support</p><p className="mt-1 text-xs text-[#9b9d92]">Have your order number handy and we’ll help you track it down.</p></div></div>
+      </div>
+    </div>
+    <form onSubmit={(event) => { event.preventDefault(); showNotice("Thanks for reaching out — we’ll be in touch soon."); event.currentTarget.reset(); }} className="contact-form rounded-3xl border p-6 sm:p-9">
+      <h2 className="font-display text-xl font-bold">Send us a little note</h2><p className="mt-1 text-xs text-[#869188]">We’ll get back to you as soon as we can.</p>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2"><label className="text-xs font-semibold">Your name<input required placeholder="e.g. Alex Green" className="mt-2 w-full rounded-xl border border-[#e3e8df] bg-[#fafbf8] px-4 py-3 text-sm font-normal outline-none transition focus:border-[#76927a]" /></label><label className="text-xs font-semibold">Email address<input required type="email" placeholder="you@example.com" className="mt-2 w-full rounded-xl border border-[#e3e8df] bg-[#fafbf8] px-4 py-3 text-sm font-normal outline-none transition focus:border-[#76927a]" /></label></div>
+      <label className="mt-4 block text-xs font-semibold">What’s on your mind?<select className="mt-2 w-full rounded-xl border border-[#e3e8df] bg-[#fafbf8] px-4 py-3 text-sm font-normal text-[#758178] outline-none focus:border-[#76927a]"><option>Just saying hello</option><option>Question about an order</option><option>Product question</option><option>Something else</option></select></label>
+      <label className="mt-4 block text-xs font-semibold">Your message<textarea required rows="5" placeholder="Tell us a little more..." className="mt-2 w-full resize-none rounded-xl border border-[#e3e8df] bg-[#fafbf8] px-4 py-3 text-sm font-normal outline-none transition focus:border-[#76927a]" /></label>
+      <button className="mt-5 w-full rounded-full bg-[#1d4e40] py-3.5 text-sm font-semibold text-white transition hover:bg-[#143b30]">Send your message <ArrowRight size={16} className="ml-2 inline" /></button>
+      <p className="mt-4 flex items-center justify-center gap-2 text-[10px] text-[#96978d]"><MessageCircle size={13} /> A real person from our team will get back to you.</p>
+    </form>
+  </section>;
+}
